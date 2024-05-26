@@ -87,3 +87,20 @@ var perro2=new perro(5,"kino","criollo",true);
 //modificamos alguna de sus propiedades 
 perro1.nombre="tony";
 perro2.edad=10;
+
+
+
+//FUNCION CONSTRUCTORA 
+//crea la clase y el contructor en la misma estructura 
+
+
+function Perro2(nombre, edad, raza){
+    this.nombre=nombre,
+    this.edad=edad,
+    this.raza=raza;
+}
+
+let perro3=new Perro2("titi",10,"caniche")
+
+
+console.log(perro3)
