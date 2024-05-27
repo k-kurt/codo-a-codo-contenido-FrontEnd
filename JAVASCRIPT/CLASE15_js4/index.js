@@ -104,3 +104,43 @@ let perro3=new Perro2("titi",10,"caniche")
 
 
 console.log(perro3)
+
+
+//STRING | PROPIEDADES Y METODOS
+
+// .length
+// Devuelve el número de caracteres de la variable de tipo string en cuestión
+
+// .charAt(pos)
+// Devuelve el carácter en la posición pos de la variable.
+//  .concat(str1, str2...)
+// Devuelve el texto de la variable unido a str1, a str2...
+//  .indexOf(str)
+// Devuelve la primera posición del texto str.
+//  .indexOf(str, from)
+// Idem al anterior, partiendo desde la posición from.
+//  .lastIndexOf(str, from)
+// Idem al anterior, pero devuelve la última posición.
+
+
+
+//METODO RADOM()
+
+/* // Obtenemos un número al azar entre [0, 1) con 16 decimales
+let x = Math.random();
+Multiplicamos x por el valor máximo que buscamos (5)
+x = x * 5;
+Redondeamos hacia abajo, obtenemos un entero
+x = Math.floor(x); */
+
+
+
+//Objeto Math | Métodos de redondeo
+
+/* 
+Math.round(x) devuelve el redondeo de x(el entero mas cercano)
+Math.ceil(x) devuelve el redondeo superior de x(el entero mas alto)
+Math.floor(x) Devuelve el redondeo inferior de x(el entero mas bajo)
+Math.fround(x) devuelve el redondeo de x(flotante con precision simple)
+Math.trunc(x) trunca el numero x (devuelve solo la parte entera)
+*/
