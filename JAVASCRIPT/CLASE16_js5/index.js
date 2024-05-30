@@ -141,31 +141,60 @@ Ordena los elementos del array bajo un criterio de ordenación func.
 // Usa for...of cuando necesites iterar sobre los valores de un iterable (como arrays o strings).
 
 
-let persona={
-    nombre: "ana",
-    apellido: "paz",
-    edad:25
-};
+// let persona={
+//     nombre: "ana",
+//     apellido: "paz",
+//     edad:25
+// };
 
-let campos=0;
+// let campos=0;
 
-for(let x in persona){
-    campos++
-    console.log(`el campo ${campos} es: ${x}`)
-}
+// for(let x in persona){
+//     campos++
+//     console.log(`el campo ${campos} es: ${x}`)
+// }
 
 //nos da los campos de este objeto
 
 //ahora si quiero sacar la key y la value 
 
-for(let x in persona){
-    console.log(`${x}: ${persona[x]}`)
-}
+// for(let x in persona){
+//     console.log(`${x}: ${persona[x]}`)
+// }
 
 
 //en objeto
-var letras = ["A", "B", "C", "D", "E", "B", "C"]
+// var letras = ["A", "B", "C", "D", "E", "B", "C"]
 
-for(let x of letras){
-    console.log(x)
+// for(let x of letras){
+//     console.log(x)
+// }
+
+
+
+
+
+
+//LOCAL STORAGE & SECCIONSTORAGE
+/* 
+En localstorage al cerrar el navegador la informacion permanece en el dispositivo  y puede ser recuperada en una sesion posterior
+En el SessionStorage al finalizar la sesion la informacio almacenada se elimina.
+Los objetos LocalStorage y sessionStorage permiten guardar pares clave/valor desde el navegador web
+
+*/
+
+
+//El navegador soporta esta funcion?
+if(typeof (Storage) !=="undefined"){
+    //setItem guarda datos en el dispositivo
+    localStorage.setItem("apellido", "perez")
+    localStorage.setItem("nombre", "Juan")
+    console.log("Datos guardados.")
+    ape=localStorage.getItem("apellido")
+    nom=localStorage.getItem("nombre")
+    console.log(`${ape}, ${nom} `)
+
+
+}else{
+    console.log("web Storage no soportado.")
 }
