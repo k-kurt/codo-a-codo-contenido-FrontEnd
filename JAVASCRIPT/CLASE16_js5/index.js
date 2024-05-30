@@ -36,18 +36,136 @@
 
 var frutas=["banana","manzana"]
 
-console.log(frutas)
+// console.log(frutas)
 
 //agregar elemento al final del array
-frutas.push("uvas", "naranja")
-console.log(frutas)
+// frutas.push("uvas", "naranja")
+// console.log(frutas)
 
-frutas.push("hola","mandando fruta", [1,2,3,4])
-console.log(frutas[6])
+// frutas.push("hola","mandando fruta", [1,2,3,4])
+// console.log(frutas[6])
 
 //acceder a los elementos de un array dentro de otro array, un array multidimensional
-console.log(frutas[6][1]);
+// console.log(frutas[6][1]);
 
 //eliminar el ultimo elemento de un arry
-frutas.pop();
-console.log(frutas)
+// frutas.pop();
+// console.log(frutas)
+
+//eliminar el primer elemento del array
+// console.log(frutas)
+// frutas.shift("hola k ase", "sin fruta")
+// console.log(frutas)
+
+
+
+//agregar elementos al inicio del array
+
+// console.log(frutas)
+// frutas.unshift("hola k ase", "sin fruta")
+// console.log(frutas)
+
+
+//Concat, concatenar array
+/* var animales=["perro","gato"]
+console.log(frutas.concat(animales))
+ */
+
+
+
+//indexof - lastindexof, saber el posicionamiento de un elemento en el array
+
+// var letras = ["A", "B", "C", "D", "E", "B", "C"]
+//Buscamos de izquierda a derecha
+// var posB1 = letras.indexOf("B")
+// console.log("La primera 'B' tiene indice",posB1)
+// var posB2 = letras.indexOf("B",2)
+// console.log("La segunda 'B' tiene indice",posB2)
+//Buscamos de derecha a izquierda
+// var posA = letras.lastIndexOf("A")
+// console.log("La última 'A' tiene indice",posA)
+// var posB = letras.lastIndexOf("B")
+// console.log("La última 'B' tiene indice",posB)
+
+
+
+
+//slice 
+//Devuelve los elementos seleccionados en un array como un array nuevo.
+//corta el array en la posicion que le indicamos, si pasanis un valor,solo quitara ese valor del array, el valor que esta en ese indice que pasamos hacia la derecha
+
+var letras = ["A", "B", "C", "D", "E", "B", "C"]
+
+// console.log(letras.slice(1,3))
+
+//es estricto en los extremos, no los cueb=nta
+
+// console.log(letras.slice(2))
+
+
+
+/* 
+ Método
+Descripción
+ .splice()
+Agrega o elimina elementos a un array. Regresa los elementos eliminados.
+ .slice()
+Devuelve los elementos seleccionados en un array como un array nuevo.
+ .reverse()
+Invierte el orden de elementos del array.
+ .sort()
+Ordena los elementos del array bajo un criterio de ordenación alfabética.
+ .sort(func)
+Ordena los elementos del array bajo un criterio de ordenación func.
+
+*/
+
+
+
+//SPILCE  array.splice(start, deleteCount, item1, item2,...)
+//donde empieza, hasta donde reemplaza, si ponemos hasat 0, mueve de lugar, no reemplaza, pero si ponemos otro numero si borra
+//EL PROFESOR NO  EXPLICA ESOOOOOOO
+
+// letras.splice(2,0,'j')
+// console.log(letras)
+
+// letras.splice(2,2,'j')
+// console.log(letras)
+
+
+
+
+//FOR IN _ FOR OF
+//el for in segun el profe funciona para contar los objetos y el for of es para los array
+// Usa for...in cuando necesites iterar sobre las propiedades de un objeto.
+// Usa for...of cuando necesites iterar sobre los valores de un iterable (como arrays o strings).
+
+
+let persona={
+    nombre: "ana",
+    apellido: "paz",
+    edad:25
+};
+
+let campos=0;
+
+for(let x in persona){
+    campos++
+    console.log(`el campo ${campos} es: ${x}`)
+}
+
+//nos da los campos de este objeto
+
+//ahora si quiero sacar la key y la value 
+
+for(let x in persona){
+    console.log(`${x}: ${persona[x]}`)
+}
+
+
+//en objeto
+var letras = ["A", "B", "C", "D", "E", "B", "C"]
+
+for(let x of letras){
+    console.log(x)
+}
