@@ -185,16 +185,89 @@ Los objetos LocalStorage y sessionStorage permiten guardar pares clave/valor des
 
 
 //El navegador soporta esta funcion?
-if(typeof (Storage) !=="undefined"){
-    //setItem guarda datos en el dispositivo
-    localStorage.setItem("apellido", "perez")
-    localStorage.setItem("nombre", "Juan")
-    console.log("Datos guardados.")
-    ape=localStorage.getItem("apellido")
-    nom=localStorage.getItem("nombre")
-    console.log(`${ape}, ${nom} `)
+// if(typeof (Storage) !=="undefined"){
+//     //setItem guarda datos en el dispositivo
+//     localStorage.setItem("apellido", "perez")
+//     localStorage.setItem("nombre", "Juan")
+//     console.log("Datos guardados.")
+//     ape=localStorage.getItem("apellido")
+//     nom=localStorage.getItem("nombre")
+//     console.log(`${ape}, ${nom} `)
 
 
-}else{
-    console.log("web Storage no soportado.")
-}
+// }else{
+//     console.log("web Storage no soportado.")
+// }
+
+
+
+//sessionStorage
+// ¿El navegador soporta esta función?
+// if (typeof(Storage) !== "undefined") {
+//     // setItem guarda datos en el dispositivo
+//     sessionStorage.setItem("curso", "Full Stack Python")
+//     // getItem recupera datos del dispositivo
+//     curso = sessionStorage.getItem("curso")
+//     console.log("recuperado:" + curso)
+//  } else {
+//     console.log("Web Storage no soportado.")
+//  }
+ 
+
+//verificamos si el nombre ya esta almacenado en localStorage
+// const nombreGuardado=localStorage.getItem('nombre');
+// if(nombreGuardado){
+//     console.log('nombre obtenido de localstorage: ', nombreGuardado, "apellido: ", localStorage.getItem('apellido'))
+
+// }else{
+//     //si no esta almacenado, solicitamos al usuario el nombre
+//     let nombre=prompt("ingrese el nombre:");
+//     if(nombre){
+//         localStorage.setItem('nombre', nombre)
+//         console.log("nombre guardado en localStorage:", nombre, "apellido: ", apellido);
+
+//     }else{
+//         console.log("no se ingreso ningun nombre")
+//     }
+
+// }
+
+
+//verificamos si el apellido en el sessionstorage esta guardado
+
+// const apellidoGuardado=sessionStorage.getItem('apellido');
+// if(apellidoGuardado){
+//     console.log("apellido obtenido de sessionStorage: ", apellidoGuardado)
+
+// }else{
+//     var apellidoEntrada=prompt("ingrese el apellido:")
+//     if(apellidoEntrada){
+
+//          sessionStorage.setItem('apellido', apellidoEntrada)
+//          console.log("Apellido guardado: ", apellidoEntrada)
+//     }else{
+//         console.log("apellido no ingresado")
+//     }
+// } 
+
+
+
+
+
+//JSON
+//para comunicarse con el servidor, hay que hacerlo con JSON, al servidor va un JSON que recibe un objeto del navegador, el navegador recibe un JSON que convierte el JSON en objeto 
+//el navegador recibe el JSON y hay que convertirlo en objeto 
+
+
+//creamos un objeto 
+var miObj={name: "kevin", edad: 27, ciudad: "puerto"}
+console.log(miObj)
+
+//hay que transformar el objeto en JSON para enviarlo al servidor
+var myJSON=JSON.stringify(miObj)
+console.log(myJSON)
+
+
+//hay que transformarlo en OBJETO para recibirlo en JAVASCRIPT
+var myObjectJSON=JSON.parse(myJSON);
+console.log(myObjectJSON)
