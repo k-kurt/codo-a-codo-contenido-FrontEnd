@@ -1,1 +1,5 @@
-console.log("hola")
+// console.log("hola")
+
+/* 
+VAMOS A VER DOM
+*/
