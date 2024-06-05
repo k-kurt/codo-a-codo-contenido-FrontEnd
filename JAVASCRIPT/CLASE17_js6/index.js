@@ -19,11 +19,18 @@ console.log(texto);
 
 //podemos traer un solo elemtno como en un array
 // console.dir(texto[0])//muestra las propiedades
-// console.log(texto[0].textContent)
+// console.log(texto[0].textContent)//muestra el texto del elemento
 
 
 //modificando texto desde js
 texto[1].innerHTML="Modficando texto desde js";
 
+//puedo crear una etiqueta, se agrega adentro del p como si fuese un div
+texto[1].innerHTML="<h2>Modficando texto desde js</h2>";
 
 
+//iterando y modificando los elementos de la coleccion
+
+for(let x=0;x<texto.length;x++){
+    texto[x].innerHTML=`llorando parte ${x}`
+}
