@@ -34,3 +34,13 @@ texto[1].innerHTML="<h2>Modficando texto desde js</h2>";
 for(let x=0;x<texto.length;x++){
     texto[x].innerHTML=`llorando parte ${x}`
 }
+
+
+
+//CONTAR TITULOS
+
+let ContarTitulos= function(){
+    //cuenta los elementos
+    let titulos=document.getElementsByTagName('li')
+    console.log('cantidad de titulos: ', titulos.length)//si no lleva el .length, muestra las propiedades
+}
