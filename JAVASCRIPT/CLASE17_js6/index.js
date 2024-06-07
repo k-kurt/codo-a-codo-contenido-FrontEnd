@@ -39,8 +39,28 @@ for(let x=0;x<texto.length;x++){
 
 //CONTAR TITULOS
 
-let ContarTitulos= function(){
+/* let ContarTitulos= function(){
     //cuenta los elementos
     let titulos=document.getElementsByTagName('li')
     console.log('cantidad de titulos: ', titulos.length)//si no lleva el .length, muestra las propiedades
-}
+
+    if(titulos.length){
+        let eleccion=parseInt(prompt('Elja un valor para seleccionar el titulo'))-1;
+        console.log(titulos[eleccion].textContent)
+
+    }
+
+} */
+
+
+
+//TRAER EL CONTENIDO DE LOS CAMPOS DEL FORMULARIO
+//a los imput generalmente le podemos poner un name, y lo podemos traer desde el javascript
+
+
+let MostrarValor= ()=>{
+    //hay que agregar el 0 por que la funcion usada trae un array no te trae un solo elemento, y el value es traer el valor de ese elemento 0 
+    let nombre=document.getElementsByName("usurname")[0].value;
+    let email=document.getElementsByName("email")[0].value;
+    console.log(nombre, email)
+} 
