@@ -7,10 +7,10 @@ VAMOS A VER DOM
 
 //llamar a un elemento del hmtl a traves del name de la clase
 //siempre va el document al principio en el manejo del DOM
-let texto=document.getElementsByClassName('texto');
+// let texto=document.getElementsByClassName('texto');
 
 //al llamarlo se crea un array de html, muestra que hay tres elementos con la clase 'texto'
-console.log(texto);
+// console.log(texto);
 
 
 //puede contener varios tipos de elementos , en este caso el h1 junto con los p
@@ -23,17 +23,17 @@ console.log(texto);
 
 
 //modificando texto desde js
-texto[1].innerHTML="Modficando texto desde js";
+// texto[1].innerHTML="Modficando texto desde js";
 
 //puedo crear una etiqueta, se agrega adentro del p como si fuese un div
-texto[1].innerHTML="<h2>Modficando texto desde js</h2>";
+// texto[1].innerHTML="<h2>Modficando texto desde js</h2>";
 
 
 //iterando y modificando los elementos de la coleccion
 
-for(let x=0;x<texto.length;x++){
-    texto[x].innerHTML=`llorando parte ${x}`
-}
+// for(let x=0;x<texto.length;x++){
+//     texto[x].innerHTML=`llorando parte ${x}`
+// }
 
 
 
@@ -74,13 +74,25 @@ let MostrarValor= ()=>{
     //por ejemplo la clase con el punto, el id con #
     //el promblema con query selector es que muestra solamente con lo primero que encutra, no crea un array o coleccion
     //si queremos agarrar un name tenemos que poner document.queryselector('name="texto"')
-
+/* 
     let parrafo=document.querySelector('.text_parraf')
-    console.log(parrafo.textContent)
+    console.log(parrafo.textContent) */
 
     //tenemos el queryselectorAll que este si crea un nodo o array con todos los elementos con esa clase
-    let parrafo1=document.querySelectorAll('.text_parraf')
+    /* let parrafo1=document.querySelectorAll('.text_parraf')
     console.log("mostrando parrafo1",parrafo1)
     for(let i=0;i<parrafo1.length;i++){
         console.log(parrafo1[i].textContent)
-    }
+    } */
+
+    //se puede seleccionar una etiqueta tambien
+    // const divs=document.querySelectorAll("div")
+    // console.log(divs);
+
+
+
+    //CREAR ELEMENTOS
+    /* 
+    vamos a utilizar .createElement() y .appendchild()
+    appendchild crea un elelemento y se lo agrega a un elemento padre
+     */
