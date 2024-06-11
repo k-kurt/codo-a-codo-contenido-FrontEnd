@@ -96,3 +96,5 @@ let MostrarValor= ()=>{
     vamos a utilizar .createElement() y .appendchild()
     appendchild crea un elelemento y se lo agrega a un elemento padre
      */
+
+    
