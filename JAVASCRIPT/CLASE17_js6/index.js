@@ -97,4 +97,88 @@ let MostrarValor= ()=>{
     appendchild crea un elelemento y se lo agrega a un elemento padre
      */
 
-    
+    //vamos a llamar al elemento de html con la forma que mas se suele usar con el document.getElementById('container')
+
+
+    /* let AgregarElementos=function(){
+
+        let texto=prompt("escriba el texto a agregar");
+
+        let parrafo=document.createElement('p');
+
+        parrafo.textContent=texto;
+
+        let contenedor=document.getElementById('creandoElementos');
+
+        contenedor.appendChild(parrafo)
+
+    } */
+
+
+
+
+        //NODOS DE TEXTO
+
+        //creamos un nodo de texto
+
+        // const h1=document.createElement('h1')
+        // const nodo=document.createTextNode('CREANDO Y CLONANDO NODOS DE TEXTO')
+        // h1.appendChild(nodo)
+        // document.body.appendChild(h1)
+
+
+        
+        //CLONANDO PARRAFO
+
+        // let clonar=function(){
+
+        //     var original=document.getElementById('original')
+
+        //     var clon=original.cloneNode(true);
+
+        //     //cambiar texto en el clon
+        //     clon.querySelector('p').textContent="este es un parrafo clonado";
+
+        //     //aniadir el clon al documento
+        //     document.body.appendChild(clon)
+
+
+        // }
+
+
+
+        //AGREGAR IMAGEN DESDE EL JS
+        
+        //si ya tenemos una imagen agregada desde el html podemos traerlo, mediante id, clase, etc
+
+        let contenedor=document.getElementById('contenedor_img')
+        const img=document.createElement('img')
+
+        img.src=("https://www.formulatv.com/images/series/posters/000/33/dest_1.jpg")
+        img.alt="imagen de bart simpson"
+        contenedor.appendChild(img)
+
+
+
+        //MODIFICAR ATRIBUTOS DE UN ELEMENTO
+
+        //el backgraoundcolor hay que hacerlo con camelcase si queremos hacerlo desde js
+
+        let p=document.getElementById('p1');
+
+        p.innerHTML="Codo a codo"
+        p.className="dato"//agrega una clase
+        p.style.color="red"
+
+
+        
+        
+        
+        //LAS 3 FORMAS DEL EVENTO CLIC
+
+        //EVENTO PARA CAMBIAR TEXTO
+        let cambiarTexto=()=>{
+            let parrafo=document.getElementById("parrafo")
+            let textodinam=prompt("ingrese el texto")
+            parrafo.innerHTML=textodinam
+        }
