@@ -177,8 +177,35 @@ let MostrarValor= ()=>{
         //LAS 3 FORMAS DEL EVENTO CLIC
 
         //EVENTO PARA CAMBIAR TEXTO
+        //en este es necesario llamar a la funcion en la declaracion del boton en html
         let cambiarTexto=()=>{
             let parrafo=document.getElementById("parrafo")
             let textodinam=prompt("ingrese el texto")
             parrafo.innerHTML=textodinam
         }
+
+
+
+        //en esta forma deramos el evento onclic en js y podriamos declarar un id en el boton ya que puede haber muchos
+        
+        // let boton=document.querySelector('button')
+        // boton.onclick=function(){
+        //     let parrafo=document.getElementById("parrafo")
+        //     let textodinam=prompt("ingrese el texto")
+        //     parrafo.innerHTML=textodinam
+        // }
+        
+
+
+
+        //en esta forma usamos la funcion de addeventListener, primero indicmos que se ejecute cuando haya cargado todo el DOM y le pasamos la funcion y a la vez declaramos la funcion donde otra vez una vez cargado el dom ejecuta la funcion de cambiar texto, como el addEventListener recibe 2 parametros, pasamos la funcion que ya teniamos de cambiarTexto
+        //el addEventListener recibe 2 parametros, el primero es el evento y el segundo es una funcion 
+
+        document.addEventListener("DOMContentLoaded", function(){
+            let botonCambiar=document.querySelector("boton");
+            botonCambiar.addEventListener("click", cambiarTexto);
+        });
+
+        //es una convencion, podria funcionar igual de la siguiente manera
+        // let botonCambiar=document.querySelector("boton");
+        //     botonCambiar.addEventListener("click", cambiarTexto);
