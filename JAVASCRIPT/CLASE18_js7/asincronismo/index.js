@@ -57,3 +57,98 @@ li1.appendChild(contenido1)
 li2.appendChild(contenido2)
 listaContainer.appendChild(li1)
 listaContainer.appendChild(li2) 
+
+
+
+
+
+
+//PROMESAS
+
+/* Son un mecanismo para manejar operaciones asincronas. permiten manejsar el eventual resultado de una operacion asincronica, ya sea un exito o un fallo. Como el try catch en Java
+
+las promesas representan un valor que puede no estar disponible aun, pero que evenutalmente se resolvera o rechazara, permitiendo que el codigo continue ejecutandose en paraleleo sin bloquear la ejecucion principal
+Sirve para:
+solicitudes de red(pj: AJAX/Fetch)
+lecturas de arcjivos en aplicaciones basdas en NodeJs
+operaciones de base de datos
+operaciones que requieran esperar por un evento o respuesta antes de continuar*/
+
+
+//COMO CREAR UNA PROMESA:
+
+/* const promesa=new Promise((resolve, reject)=> {
+    //simulamos un valor para que la condicion se cumpla(o no)
+    const x=44;
+    //operacion asincornica simulada
+    setTimeout(() => {
+        if(x===42){
+            resolve("Exito!")//la promsesa se resuleve exitosamente
+        }else{
+            reject("fallo!")//la promesa falla y se rechaza
+        }
+    }, 2000);
+})
+
+
+//el then es un metodo utilizado en las promesas que capta las 2 opciones
+promesa.then(
+    (resultado)=>{
+        console.log(resultado);
+    },
+    (error)=>{
+        console.error(error);
+    }
+    
+).finally(console.log("operacion finalizada"));
+
+ */
+
+//este es el mismo codigo que el de arriba para mostrar el resultado, pero con mas pasos para poder entender mejor
+
+//definir la funcion para manejsar el resultado
+// function manejarResultado(resultado){
+//     console.log(resultado);//se ejecuta si la promesa se resuelve
+// }
+
+// //definir la funcion para manejsar el error
+// function manejarError(error){
+//     console.error(error); //se ejecuta si la promesa se rechaza 
+// }
+
+// //Usar then y catch para manejsar la resolucion y el rechazo de la promesa
+// promesa
+// .then(manejarResultado)
+// .catch(manejarError);
+
+
+
+
+//OTRA FORMA DE HACERLO
+ function ejemploPromesa(){
+
+    return new Promise((resolve, reject)=> {
+        //simulamos un valor para que la condicion se cumpla(o no)
+    const x=44;
+//operacion asincornica simulada
+setTimeout(() => {
+    if(x===42){
+        resolve("Exito!")//la promsesa se resuleve exitosamente
+    }else{
+        reject("fallo!")//la promesa falla y se rechaza
+    }
+}, 2000);
+})
+}
+
+
+ejemploPromesa()
+.then((resultado)=>{
+    console.log(resultado);
+})
+.catch((error)=>{
+    console.error(error);
+})
+.finally(()=>{
+    console.log("operacion finalizada")
+})
