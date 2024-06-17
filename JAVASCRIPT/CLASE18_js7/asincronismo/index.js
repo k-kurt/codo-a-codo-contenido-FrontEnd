@@ -104,6 +104,8 @@ promesa.then(
 
  */
 
+
+
 //este es el mismo codigo que el de arriba para mostrar el resultado, pero con mas pasos para poder entender mejor
 
 //definir la funcion para manejsar el resultado
@@ -152,3 +154,39 @@ ejemploPromesa()
 .finally(()=>{
     console.log("operacion finalizada")
 })
+
+
+
+//OTRO EJEMPLO
+function obtenerDatosDeAPI(){
+    return new Promise((resolve, reject)=>{
+        //simulamos una llamada a la API con setTimeout
+        setTimeout(() => {
+            //supongamos que esta es una operacion que puede fallar aleatoriamente
+            const fallo=Math.random()>0.5;//50% de provalidad de fallo
+            if(fallo){
+                reject("Error: No se puedo obtener los datos.")
+            }else{
+                resolve("datos obtenidos exitosamente.")
+            }
+
+        }, 1000);
+    }
+
+    )
+}
+
+
+obtenerDatosDeAPI()
+.then(respuesta=>{
+    //se ejecuta si la promesa se resuelve exitosamente 
+    console.log(respuesta)
+})
+.catch(error=>{
+    //se eejecuta si la promesa se rechaza 
+    console.log(error);
+})
+.finally(()=>{
+    //se ejecuta independientemente del resultado anterior
+    console.log("Operacion completada");
+});
