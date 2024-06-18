@@ -127,66 +127,175 @@ promesa.then(
 
 
 //OTRA FORMA DE HACERLO
- function ejemploPromesa(){
+//  function ejemploPromesa(){
 
-    return new Promise((resolve, reject)=> {
-        //simulamos un valor para que la condicion se cumpla(o no)
-    const x=44;
-//operacion asincornica simulada
-setTimeout(() => {
-    if(x===42){
-        resolve("Exito!")//la promsesa se resuleve exitosamente
-    }else{
-        reject("fallo!")//la promesa falla y se rechaza
-    }
-}, 2000);
-})
-}
+//     return new Promise((resolve, reject)=> {
+//         //simulamos un valor para que la condicion se cumpla(o no)
+//     const x=44;
+// //operacion asincornica simulada
+// setTimeout(() => {
+//     if(x===42){
+//         resolve("Exito!")//la promsesa se resuleve exitosamente
+//     }else{
+//         reject("fallo!")//la promesa falla y se rechaza
+//     }
+// }, 2000);
+// })
+// }
 
 
-ejemploPromesa()
-.then((resultado)=>{
-    console.log(resultado);
-})
-.catch((error)=>{
-    console.error(error);
-})
-.finally(()=>{
-    console.log("operacion finalizada")
-})
+// ejemploPromesa()
+// .then((resultado)=>{
+//     console.log(resultado);
+// })
+// .catch((error)=>{
+//     console.error(error);
+// })
+// .finally(()=>{
+//     console.log("operacion finalizada")
+// })
 
 
 
 //OTRO EJEMPLO
-function obtenerDatosDeAPI(){
-    return new Promise((resolve, reject)=>{
-        //simulamos una llamada a la API con setTimeout
+// function obtenerDatosDeAPI(){
+//     return new Promise((resolve, reject)=>{
+//         //simulamos una llamada a la API con setTimeout
+//         setTimeout(() => {
+//             //supongamos que esta es una operacion que puede fallar aleatoriamente
+//             const fallo=Math.random()>0.5;//50% de provalidad de fallo
+//             if(fallo){
+//                 reject("Error: No se puedo obtener los datos.")
+//             }else{
+//                 resolve("datos obtenidos exitosamente.")
+//             }
+
+//         }, 1000);
+//     }
+
+//     )
+// }
+
+
+// obtenerDatosDeAPI()
+// .then(respuesta=>{
+//     //se ejecuta si la promesa se resuelve exitosamente 
+//     console.log(respuesta)
+// })
+// .catch(error=>{
+//     //se eejecuta si la promesa se rechaza 
+//     console.log(error);
+// })
+// .finally(()=>{
+//     //se ejecuta independientemente del resultado anterior
+//     console.log("Operacion completada");
+// });
+
+
+
+
+
+
+
+
+
+
+//CALLBACK HELL
+/* Este codigo ilustra un collbackHell por que las funciones de callback estan anidadas dentro de otras funciones callback; creando un codigo que se desplaza a la fertecvha y dificil de leer y mantener. Esta estructura puede llevar a errores y difilcutades al intentar rastrear el flujo de ejecucuon del programa, especialmente en aplicaciones mas complejas donde las operaciones asincronas son comunes. */
+
+
+
+/* 
+console.log("inicio del proceso");
+
+setTimeout(() => {
+    console.log("primera tarea completada");
+    setTimeout(() => {
+        console.log("segundo proceso terminado")
         setTimeout(() => {
-            //supongamos que esta es una operacion que puede fallar aleatoriamente
-            const fallo=Math.random()>0.5;//50% de provalidad de fallo
-            if(fallo){
-                reject("Error: No se puedo obtener los datos.")
-            }else{
-                resolve("datos obtenidos exitosamente.")
-            }
+            console.log("tercer proceso terminado")
+            console.log("todos los procesos terminados")
+        }, 1000);//tercera tarda 1 segundo
+    }, 1000);//segunda tarea tarda 1 segundo
+}, 1000);//primera tarea tarda 1 segundo */
 
-        }, 1000);
+
+
+
+
+
+
+
+//ASYNC / AWAIT
+/* async y await son extensiones de las promesas en javascript que simplifican la forma de trabajar con operaciones asincronas. Estos hacen que el codigo asincrona sea mas facil de escribir y entender ls complejidades habituales asiciadas con el manejo de promesas.
+
+La funcion async 
+la palabra clave async se utiliza para declarar una funcion como asincrnona. Declara que una funcion puede, en algun momento esperar a que las promesas se resuelvan sin bloquear la ejecucion de otras operaciones, Aqui estan los detalles clase:
+
+Devolucion de una promesa: una funcion async automaticamente devuelve una promesa . si la funcion retorna algo que no es promesa, ese valor sera automaticamente envuelvo en una promesa
+
+Sintaxis: pUede ser usada con declaraciones de funciones normales, funciones flecha,  y metodos de clase.*/
+
+
+/* En el siguiente ejemplo, declaramos una funcion asincronica, por lo tanto devolvera automaticamente  una promesa, esto nos permite utilizar los metodos aplicados a las promesas cuando sea invocada a funcion
+*/
+
+
+async function obtenerDatos(){
+    return "datos recibidos";
+}
+
+//la funcion devuelve una promesa
+obtenerDatos().then(console.log);//imprime "datos recibidos"
+
+
+/* Pero todavia, al no utilizar el await dentro de la funcion, no tenemos un asincronismo real en el codigo. */
+
+
+
+
+//AWAIT
+//la palabra clave await
+/* await solo puede ser usado dentro defunciones async y es usado para pausar la ejecucion de la funcion hasta que la promesa a ala que se llama se resuelva o rechace. El uso de await ayuda a que el codigo asincrono se lea de manera mas intuitiva, casi como si fuera sincronico */
+/* 
+
+async function procesarDatos(){
+    try {
+        //espera aqui hasta que fetch complete
+        const datos=await fetch('https://api.example.com/datos');
+        //Espera aqui jasta que la conversion a JSON complete
+        const json=await datos.json();
+        console.log(json);
+    } catch (error) {
+        console.error("error al obtener datos: ", error)
     }
+}
+ */
 
-    )
+
+
+
+
+
+
+//CONSUMIENDO UNA API
+async function procesarDatos(){
+    try {
+        const datos=await fetch('https://hp-api.onrender.com/api/characters');
+        const json=await datos.json();
+
+        //forma mas corta de hacerlo
+        //const daos2=await fetch('https://hp-api.onrender.com/api/characters').then(res=>res.json())
+
+
+        let propiedad=json[0];
+        console.log(propiedad.actor)
+        console.log(json[0])
+        console.log(json)
+    } catch (error) {
+        console.error("Error al obtener datos: ",error)
+    }
 }
 
 
-obtenerDatosDeAPI()
-.then(respuesta=>{
-    //se ejecuta si la promesa se resuelve exitosamente 
-    console.log(respuesta)
-})
-.catch(error=>{
-    //se eejecuta si la promesa se rechaza 
-    console.log(error);
-})
-.finally(()=>{
-    //se ejecuta independientemente del resultado anterior
-    console.log("Operacion completada");
-});
+procesarDatos();
