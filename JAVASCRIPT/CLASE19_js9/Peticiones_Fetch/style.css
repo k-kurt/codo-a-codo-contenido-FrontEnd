@@ -1,0 +1,37 @@
+
+/* 
+SE PUEDE DAR ESTILO A LOS ELEMENTOS DE HTML CREADOS DESDE JAVASCRIPT
+*/
+
+
+#personajes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuir el espacio entre las tarjetas */
+}
+
+.character {
+    width: calc(25% - 20px); /* Calcular el ancho de cada tarjeta para que quepan cuatro por línea */
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box; /* Asegurar que el padding no afecte el ancho total */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.character img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+.character h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.character p {
+    font-size: 14px;
+    margin-bottom: 0;
+}

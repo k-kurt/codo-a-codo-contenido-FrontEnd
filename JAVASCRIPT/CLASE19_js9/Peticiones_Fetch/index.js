@@ -66,3 +66,42 @@ fetch('https://rickandmortyapi.com/api/character', options)
 }
 
 perdirDatos(); */
+
+
+
+
+
+//CONSUMO DE API Y MOSTRARLO EN EL HTML
+
+let container=document.getElementById('personajes')
+
+const pedirDatos=()=>{
+
+    fetch('https://rickandmortyapi.com/api/character', options)
+    .then(response=>response.json())
+    // .then(response=>console.log(response))
+    .then(response=>{
+        response.results.forEach((personaje)=>{
+            // console.log(personaje.name, personaje.image, personaje.species);
+            const articule=document.createElement('articule');
+            articule.setAttribute('class', 'character');
+            articule.innerHTML=`
+            <img src="${personaje.image}" alt="${personaje.name}">
+            <h2>${personaje.name}</h2>
+            <div>
+            <p>${personaje.species}</p>
+            </div>`;
+            container.appendChild(articule);
+        })})
+        
+        .catch(err=>console.error(err)); 
+    }
+
+
+pedirDatos();
+
+
+// let titulo=document.querySelector('h1');
+// let header=document.querySelector('header');
+// titulo.innerHTML=`<h2>holaaaaaaaa</h2>`;
+// header.appendChild(titulo)
