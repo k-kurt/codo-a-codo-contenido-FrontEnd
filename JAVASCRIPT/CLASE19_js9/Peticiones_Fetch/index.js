@@ -82,6 +82,11 @@ const pedirDatos=()=>{
     // .then(response=>console.log(response))
     .then(response=>{
         response.results.forEach((personaje)=>{
+            //.then(personajes=>{
+            //personas.forEach(personaje=>{
+                // }) })ESTA FORMA ES PARA CUANDO LA API NO TIENE UN CONTAINER COMO 'results' EN LA ANTERIOR, estan directamente los objetos cargados 
+
+
             // console.log(personaje.name, personaje.image, personaje.species);
             const articule=document.createElement('articule');
             articule.setAttribute('class', 'character');
