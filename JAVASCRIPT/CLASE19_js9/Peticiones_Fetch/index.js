@@ -39,5 +39,30 @@ const options={
 
 fetch('https://rickandmortyapi.com/api/character', options)
 .then(response=>response.json())
-.then(response=>console.log(response))
+// .then(response=>console.log(response))
+.then(response=>{
+    response.results.forEach((personaje)=>{
+    console.log(personaje.name, personaje.image, personaje.species);
+})})
+
+//es lo mismo que arriba, solo que lo de arriba trae todo el objeto completo y aca mostramos las propiedades del objeto
+//la palabra perosnajes la elegimos nosotros
 .catch(err=>console.error(err)); 
+
+
+//LO MISMO PERO EN UNA FUNCION
+/* const perdirDatos=()=>{
+fetch('https://rickandmortyapi.com/api/character', options)
+.then(response=>response.json())
+// .then(response=>console.log(response))
+.then(response=>{
+    response.results.forEach((personaje)=>{
+    console.log(personaje.name, personaje.image, personaje.species);
+})})
+
+//es lo mismo que arriba, solo que lo de arriba trae todo el objeto completo y aca mostramos las propiedades del objeto
+//la palabra perosnajes la elegimos nosotros
+.catch(err=>console.error(err)); 
+}
+
+perdirDatos(); */
