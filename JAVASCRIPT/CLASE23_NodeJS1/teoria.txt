@@ -1,0 +1,5 @@
+abrimos una  nueva terminal 
+-entramos a la carpeta y abrimos js con node
+-cd clase17
+-cd asincronismo
+-node index.js
