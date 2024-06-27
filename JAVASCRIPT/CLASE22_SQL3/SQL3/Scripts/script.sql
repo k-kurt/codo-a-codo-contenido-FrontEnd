@@ -38,3 +38,52 @@ INNER JOIN pedido p ON c.id= p.id_cliente;
 
 
 
+
+
+
+--LEFT JOIN
+--traemos como en el inner join las coincidencias pero en este caso, traemos todo lo la tabla de la izquierda y las que no le corresponde la coincidencia pone null
+
+SELECT c.*, p.*
+FROM cliente c 
+LEFT JOIN pedido p ON c.id = p.id_cliente;
+
+--salen todos los clientes auqnue no hayan comprado nada
+
+
+
+
+--SUBCONSULTA
+--obtener en uno de los parametros una subconsulta obteniendo el minimo de fecha de compra 
+SELECT id, nombre,
+(SELECT MIN(fecha)
+FROM pedido
+WHERE pedido.id_cliente = cliente.id) AS fecha_minima
+FROM cliente;
+
+
+
+
+--EXISTE
+--pedir al menos una coincidencia de si existe una compra del cliente 
+SELECT id, nombre
+FROM clientes
+WHERE EXISTS(
+    SELECT 1
+    FROM pedido
+    WHERE pedido.id_cliente = cliente.id
+);
+
+
+
+
+--GROUP BY HAVING COUNT
+--junta en un grupo sin repeticion los elementos que coincidan
+--el javing count funciona solo con el group BY
+SELECT c.id, c.nombre
+FROM clientes c
+JOIN pedido p ON c.id= p.id_cliente
+GROUP BY c.id, c.nombre
+HAVING COUNT(p.numero) >=2;
+--trae un unico resultado, que es el nombre y el id de la persona que compro mas de 2 productos
+--En resumen, este código selecciona los id y nombre de los clientes que tienen al menos 2 pedidos registrados en la tabla pedido.
