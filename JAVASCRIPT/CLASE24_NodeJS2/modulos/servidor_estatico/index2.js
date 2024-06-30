@@ -1,6 +1,7 @@
 //importamos nuestro modulo http
 const http=require('http')
 
+const fs=require('fs')//este modulo nos permite trabajar con archivos
 
 const server=http.createServer(
     (req, res)=>{
