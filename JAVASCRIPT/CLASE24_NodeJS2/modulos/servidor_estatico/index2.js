@@ -5,8 +5,11 @@ const fs=require('fs')//este modulo nos permite trabajar con archivos
 
 const server=http.createServer(
     (req, res)=>{
+
+        const file = fs.readFileSync(__dirname + '/../index2.html')//el readFileSync permite leer archivos sincrnicamente, hasta que notermine no continua
+
         res.writeHead(200,{'content-Type': 'text/html; charset=UTF-8'})
-        res.end('<h1>hola mundo!</h1><p>parrafo</>')
+        res.end(file)//le pasamos la variable file
     }
 )
 
