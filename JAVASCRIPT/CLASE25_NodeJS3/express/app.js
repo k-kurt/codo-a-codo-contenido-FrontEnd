@@ -13,3 +13,9 @@ A continuación, vemos en el package.json que contamos con una lista de dependen
 const express=require('express')
 //vamos a crear una variable donde esten englobadas todas las funciones de express, llama a los metodos de express
 const app=express()
+//tenemos que declarar el puerto donde vamos a correr la aplicacion
+const port=3000
+
+//vamos a empezar a usar los estados
+//el primer parametro que le vamos a pasar sera la ruta donde queremos levantar este servidor, podemos darle varias rutas y cada ruta puede tener una accion distinta, en este caso la ruta incio pero puede ser la que nosotros querramos
+app.get("/inicio", (req, res))
