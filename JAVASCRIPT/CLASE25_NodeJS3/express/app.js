@@ -18,4 +18,12 @@ const port=3000
 
 //vamos a empezar a usar los estados
 //el primer parametro que le vamos a pasar sera la ruta donde queremos levantar este servidor, podemos darle varias rutas y cada ruta puede tener una accion distinta, en este caso la ruta incio pero puede ser la que nosotros querramos
-app.get("/inicio", (req, res))
+app.get("/inicio", (req, res)=>{
+    res.send("Hello word");//la respuesta a esa ruta va ser hello word
+})
+
+
+//llamamos al servidor
+app.listen(port, ()=>{
+    console.log(`corriendo en http://localhost:${port}`);
+})
