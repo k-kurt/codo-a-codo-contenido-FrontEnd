@@ -27,3 +27,18 @@ app.get("/inicio", (req, res)=>{
 app.listen(port, ()=>{
     console.log(`corriendo en http://localhost:${port}`);
 })
+
+/* 
+EN EL PACKAGE.JSON AGREGAMOS EL "start": "node.js" en la parte de scripts 
+Si queremos que la pagina se vaya actualizando a medida que se vaya codeando se usa Nodemon, como el liveserver funciona, no todas las pc lo soportan, una forma es parecida a lo que hicimos antes pero agregando el flag "--watch"
+"scripts" : {
+"start": "node --watch app.js"
+}
+esa es una forma de que lo ejecute javascript
+La otra forma es instalar la dependencia y hacer lo mismo
+se instala con "npm install -D nodemon"
+y se hace lo mismo que antes 
+"scripts": {
+"start": "nodemon app.js"
+}
+*/
