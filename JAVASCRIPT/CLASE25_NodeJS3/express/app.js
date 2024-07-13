@@ -16,6 +16,8 @@ const app=express()
 //tenemos que declarar el puerto donde vamos a correr la aplicacion
 const port=3000
 
+//importar el filesystem, para hacer lo de  consumir un json
+const fs=require('fs')
 
 //Esto es para utilizar la carpeta public donde siempre se utiliza el index.html coo pagina inicial 
 app.use(express.static('public'))//hay que crear esa carpeta donde esta el app.js
@@ -33,8 +35,30 @@ app.get('/segundaRuta',(req, res)=>{
 })
 
 
+//vamos a mostrar el json package.json del proyecto en la ruta /item
+app.get('/item',(req, res)=>{
+    const getItems=fs.readFileSync('package.json')//toma el archivo json
+
+    res.send(JSON.parse(getItems))//enviamos la respuesta con el json parseado
+})
 
 
+
+//RUTAS PARAMETRIZADAS
+app.get('/inicio/:id',(req,res)=>{
+    const id=req.params.id//ese id del final es por que arriba esta id
+    res.send(`su numero de usuario es ${id}`)
+    })
+
+app.get('/inicio/:id/nombre/:nombre',(req, res)=>{
+
+    const nombre=req.params.nombre
+    res.send(`Su nombre es ${nombre}`)
+
+})
+
+
+//-----------------------------------------------
 
 //llamamos al servidor
 app.listen(port, ()=>{
