@@ -44,7 +44,8 @@ app.get('/item',(req, res)=>{
 
 
 
-//RUTAS PARAMETRIZADAS
+//RUTAS PARAMETRIZADAS-params
+
 app.get('/inicio/:id',(req,res)=>{
     const id=req.params.id//ese id del final es por que arriba esta id
     res.send(`su numero de usuario es ${id}`)
@@ -55,6 +56,26 @@ app.get('/inicio/:id/nombre/:nombre',(req, res)=>{
     const nombre=req.params.nombre
     res.send(`Su nombre es ${nombre}`)
 
+})
+
+
+
+
+//RUTAS PARAMETRIZADAS-query
+
+/* Otra manera de pedir datos a través de la URL es mediante los querys.
+En las rutas parametrizadas en lugar de incluir los parámetros directamente en la ruta de la URL, como en las rutas parametrizadas convencionales, los parámetros de consulta se incluyen como pares clave-valor en la parte de la URL que sigue al signo de interrogación ?
+http://localhost:3000/busqueda?palabra=perro&tipo=animal */
+
+app.get('/busqueda',(req,res)=>{
+    const nombre=req.query.nombre
+    const apellido=req.query.apellido
+    const edad=req.query.edad
+    if(nombre&&apellido&&edad){
+        res.send(`Nombre: ${nombre}, Apellido: ${apellido}, Edad: ${edad}`)
+    }else{
+        res.send(`Por favor, proporcione un nombre, apellido, o una edad en la query string`)
+    }
 })
 
 
