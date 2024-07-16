@@ -1,7 +1,7 @@
 const express=require('express')
 const app=express()
 const PORT=3000
-const moviesRouter=require('./routes/movies.js')
+const moviesRouter=require('../routes/movies.js')
 
 
 app.use(express.json())//va a recibir un json
