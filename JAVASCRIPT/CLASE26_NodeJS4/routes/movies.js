@@ -9,6 +9,9 @@ let peliculas=[
 ]
 
 
+
+//PARA VER LOS METODOS DE COMO MANEJAR LOS ARRAY COMO LO HICIMOS AQUI, ESTA EN LA CLASE 17. JS 5
+
 router.get('/', (req, res)=>{
     res.json(peliculas)
 })
