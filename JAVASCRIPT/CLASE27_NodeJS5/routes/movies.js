@@ -1,3 +1,6 @@
+//aqui vamos a tener las peliculas
+//hay que modificar el package para que ejecute desde src/servers.js por el cambio de ubicacion
+
 const express=require('express')
 const router=express.Router()
 
