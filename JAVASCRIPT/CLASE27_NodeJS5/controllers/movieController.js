@@ -5,7 +5,10 @@ const db=require('../db/db.js')//sale, entra a la carpeta db y usa el archivo db
 
 
 const getAllMovies=(req, res) =>{
-    const query= 'SELECT  * FROM movies'
-    
+    const sql= 'SELECT  * FROM movies'
+    db.query(sql, (err, results) =>{
+        if(err) throw err
+        res.json(results)
+    })
 
 }
