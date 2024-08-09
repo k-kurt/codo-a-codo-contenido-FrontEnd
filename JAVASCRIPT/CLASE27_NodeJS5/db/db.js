@@ -6,7 +6,7 @@ const mysql=require('mysql2')
 const connection=mysql.createConnection({
     //cuando levantamos la bbdd con xampp la contrasenia es vacia
     host: 'localhost',
-    user: 'user',
+    user: 'root',
     password: '',
     database: 'movies_db'
 })

@@ -12,3 +12,5 @@ const getAllMovies=(req, res) =>{
     })
 
 }
+
+module.exports={getAllMovies}
