@@ -13,4 +13,20 @@ const getAllMovies=(req, res) =>{
 
 }
 
-module.exports={getAllMovies}
+//mostrar el registro por el id, pasado el id como parametro en el url
+const getMovieById=(req, res) =>{
+    const {id}=req.params
+    const sql='SELECT * FROM movies WHERE id=?'
+    
+    db.query(sql, [id], (err,results)=>{//en este caso pasamos en el query el parametro de id
+        if(err) throw err
+        res.json(results)
+    })
+}
+
+
+module.exports={
+    getAllMovies,
+    getMovieById
+
+}

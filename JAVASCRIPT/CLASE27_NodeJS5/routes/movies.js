@@ -8,8 +8,8 @@ const movieController=require('../controllers/movieController')//aqui llamos al 
 
 
 //vamos a usar la funcion del controller para traer todas las pelis
-router.get('/', movieController.getAllMovies)//tine que ser el mismo nombre de la funcion 
-// router.get('/:id', movieController.getMovieById)
+router.get('/', movieController.getAllMovies)//tiene que ser el mismo nombre de la funcion 
+router.get('/:id', movieController.getMovieById)
 // router.post('/', movieController.createMovie)
 // router.put('/:id', movieController.updateMovie)
 // router.delete('/:id', movieController.deleteMovie)
