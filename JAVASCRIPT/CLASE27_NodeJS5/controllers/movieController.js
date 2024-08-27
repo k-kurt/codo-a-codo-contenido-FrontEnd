@@ -25,6 +25,16 @@ const getMovieById=(req, res) =>{
 }
 
 
+const createMovie=(req, res)=>{
+    const {title,director,year}=req.body
+    const sql='INSERT INTO movies (title,director,year) VALUES (?,?,?)'
+    db.query(sql,[title,director,year],(err,results)=>{
+        if(err) throw err
+        res.json({message:'Pelicula agregada correctamente', movieID: results.insertId})
+    })
+}
+
+
 module.exports={
     getAllMovies,
     getMovieById
