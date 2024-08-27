@@ -35,8 +35,34 @@ const createMovie=(req, res)=>{
 }
 
 
+const updateMovie=(req,res)=>{
+    const {id}=req.params
+    const {title, director,year}=req.body
+    const sql='UPDATE movies SET title=?, director=?, year=? WHERE id=?'
+
+    db.query(sql, [title,director,year,id], (err, results)=>{
+        if(err) throw err
+        res.json({message: 'Pelicula actualizada'})
+    }) 
+
+}
+
+
+const deleteMovie = (req,res)=>{
+    const {id}=req.params
+    const sql='DELETE FROM movies WHERE id=?'
+    db.query(sql,[id],(err, results)=>{
+        if(err) throw err
+        res.json({message: 'Pelicula eliminada'})
+    })
+}
+
+
 module.exports={
     getAllMovies,
-    getMovieById
+    getMovieById,
+    createMovie,
+    updateMovie,
+    deleteMovie
 
 }
