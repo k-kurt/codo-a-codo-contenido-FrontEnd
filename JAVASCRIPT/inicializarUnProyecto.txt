@@ -1,0 +1,4 @@
+creamos un archivo app.js(si no te lo pide luego)
+nos ubicamos en el directorio en la consola
+instalamos express con npm i express
+indicamos en el package.json lo de start junto con lo de actulizar los cambios
