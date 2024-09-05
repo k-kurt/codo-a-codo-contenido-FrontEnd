@@ -1,7 +1,7 @@
 const express=require('expres')
 const app=express()
 const PORT=3000
-const multer=require('multer')
+const multer=require('multer')//para utilizar multer
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -10,11 +10,14 @@ const storage=multer.diskStorage({
     filename: (req,file,cb)=>{
         cb(null,Date.now()+path.extname(file.originalname))
     }
-    //el null es por si falla que no suba ningun archivo
+    //el null es por si falla que no suba ningun archivo, va a tirar un visible para nosotros
     
 })
 
 
+const upload = multer({
+    storage: storage//el key es obligatorio de multer
+})
 
 
 app.listen(PORT, ()=>{
