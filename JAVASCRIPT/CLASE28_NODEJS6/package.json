@@ -1,6 +1,18 @@
 {
   "dependencies": {
     "expres": "^0.0.5",
+    "express": "^4.19.2",
     "multer": "^1.4.5-lts.1"
-  }
+  },
+  "name": "clase28_nodejs6",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

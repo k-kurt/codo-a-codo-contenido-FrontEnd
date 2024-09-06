@@ -1,4 +1,4 @@
-const express=require('expres')
+const express=require('express')
 const app=express()
 const PORT=3000
 const multer=require('multer')//para utilizar multer
