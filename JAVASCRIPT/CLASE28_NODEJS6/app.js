@@ -22,9 +22,16 @@ const upload = multer({
 })
 
 
+//de un solo archivo a la vez
 app.post('/upload', upload.single('archivo'),(req, res)=>{
     res.send('Archivo subido con exito')
 })//en postman pasamos este nombre al archivo
+
+//de varios archivos a la vez
+app.post('/uploads',upload.array('archivos',10) ,(req, res)=>{
+    res.send('Archivos subidos con exito')
+})
+
 
 app.listen(PORT, ()=>{
     console.log('Corriendo en puerto 3000')
