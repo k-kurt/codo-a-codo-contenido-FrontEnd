@@ -2,6 +2,8 @@ const express=require('express')
 const app=express()
 const PORT=3000
 const multer=require('multer')//para utilizar multer
+const path=require('path')
+
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -20,9 +22,14 @@ const upload = multer({
 })
 
 
+app.post('/upload', upload.single('archivo'),(req, res)=>{
+    res.send('Archivo subido con exito')
+})//en postman pasamos este nombre al archivo
+
 app.listen(PORT, ()=>{
     console.log('Corriendo en puerto 3000')
 })
 
 
 // el multer nos permite guardar archivos, en este caso lo haremos desde el postman, en vez de mandar un json, pasamos un jpg y este lo guardara en una carpeta que crearemos en el proyecto o tambien lo podemos almacenar en la bbdd que tambien lo almacena en el local, en la bbdd va el directorio del archivo
+//para subir el archivo en el postman, ponemos en post, body, form-data, en el key seleccionamos file y ponemos el key que habiamos codeado 
