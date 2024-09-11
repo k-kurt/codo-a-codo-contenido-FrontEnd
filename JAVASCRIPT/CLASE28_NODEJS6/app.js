@@ -18,7 +18,26 @@ const storage=multer.diskStorage({
 
 
 const upload = multer({
-    storage: storage//el key es obligatorio de multer
+    storage: storage,//el key es obligatorio de 
+    //VALIDACION extension de archivos, el filtro de tipo de archivo
+    fileFilter: (req,file, cb)=>{
+        const filetypes= /jpeg|jpg|png/ //extensiones aceptadas
+
+        const mimetype=filetypes.test(file.mimetype)//la propiedad devuelve true o false en caso que coincida con los formatos pasados
+
+        const extname=filetypes.test(path.extname(file.originalname).toLowerCase())
+        /* 
+        El código está verificando dos cosas:
+        Si el tipo MIME del archivo (file.mimetype) coincide con jpeg, jpg, o png.
+        Si la extensión del archivo (file.originalname) coincide con una de las extensiones permitidas. */
+
+        if(mimetype && extname){
+            return cb(null,true)//el null es evitar subir archivos en el error
+        }
+        cb('Error: Tipo de archivo no soportado')
+    },
+    limits: {fileSize: 10000000}//el tamanio max del archivo, en kb
+
 })
 
 
