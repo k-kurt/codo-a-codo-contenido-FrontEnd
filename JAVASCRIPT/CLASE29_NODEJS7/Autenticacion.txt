@@ -1,3 +1,12 @@
+instalacion de las libreria
+
+npm init -y
+npm i express jsonwebtoken bcryptjs  //tres instalaciones al mismo tiempo
+
+
+
+
+
 La autenticacion es el proceso de verificar la identidad de un usuario, dispositivo o sistema para garantizar que solo las personas autorizadas accedean a los recursos y servicios protegidos
 
 

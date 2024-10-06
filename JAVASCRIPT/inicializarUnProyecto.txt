@@ -6,3 +6,10 @@ MULTER es un middleword que vamos a utilizar para gestionar archivos
 lo instalamos con npm i multer
 hay que inicializar el proyecto, sino no podemos agregar el npm start en el package.json, lo inicializamos con el npm init -y
 agregamos el "scripts" lo siguiente  "start": "node --watch app.js"
+
+
+para instalar las libreria de autenticacion 
+instalacion de las libreria
+
+npm init -y
+npm i express jsonwebtoken bcryptjs
