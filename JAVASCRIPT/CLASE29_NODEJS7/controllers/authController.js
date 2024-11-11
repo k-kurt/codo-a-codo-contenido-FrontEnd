@@ -21,3 +21,22 @@ exports.register=(req,res)=>{
 
     res.status(201).send({auth: true, token})
 }
+
+//buscando el ususario
+exports.login = (req, res)=>{
+    const {username, password}=req.body//desde postman
+
+    const user=users.find(u=>u.username === username)//buscando en el array con find
+
+    if(!user) return res.status(404).send('User not found')//no encontrado
+
+    const passwordIsValid=bcrypt.compareSync(password,user.password)//comparamos el password que tenemos
+
+    if(!passwordIsValid) return res.status(404).send({auth: false, token: null})//si no es valido, pasamos el token null
+
+    const token= jwt.sign({id: user.id}, config.secretKey, {expiresIn: config.tokenExpiresIn})//creamos el token
+
+    res.status(200).send({auth: true, token})//si es correcto pasamos el token
+
+
+}
