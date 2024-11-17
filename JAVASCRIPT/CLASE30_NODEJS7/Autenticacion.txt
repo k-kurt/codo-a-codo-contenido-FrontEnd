@@ -1,0 +1,41 @@
+instalacion de las libreria
+
+npm init -y
+npm i express jsonwebtoken bcryptjs  //tres instalaciones al mismo tiempo
+
+
+
+
+
+La autenticacion es el proceso de verificar la identidad de un usuario, dispositivo o sistema para garantizar que solo las personas autorizadas accedean a los recursos y servicios protegidos
+
+
+Fases del proceso de autenticacion
+
+-Identificacion:
+El usuario proporciona una identidad, como unnombre de usuario o un ID.
+-Verificacion:
+El usuario prieba su identidad mediante una contrasenia, un token o biometria.
+
+
+Metodos comunes de autenticacion
+-contrasenias:
+se ingresa una contrasenia que se compara con una almacenada
+-tokens:
+se utilizan tokens de software o hardware para la Verificacion
+-biometria:
+Utiliza caracteristicas fisicas como huellas dactilares o reconocimiento facial
+
+
+QUe es un token
+Es una cadena de texto que actua como un sustituto de datos sensibles. Los tokens se generan de manera unica para cada sesion o transaccion y se pueden revocar o expirar despues de un peridodo de tiempo
+
+Que es un JSON WEB TOKEN?
+es un estndar abierto para crear tokens de acceso que permiten la comunicacion segura entre dos partes(frontend y backend).
+Se compone de tres partes: Header, payload y Signature
+
+A utilizar:
+la libreria jsonwebtoken que se utiliza en node.js para trabajar con JWTs
+y la libreria bcryptjs se utiliza en node.js para manejsar la seguridad de las contrasenias. proporciona funciones para cifrar(hash) contrasenias y compararlas de manera segura, util para comparar las contrasenias almacenadas
+
+COMO DESARROLLADORES NUNCA DEBEMOS GUARDAR UNA CONTRASENIA EN UNA BASE DE DATOS SIN UTILIZAR ALGUN TPO DE HASH.
